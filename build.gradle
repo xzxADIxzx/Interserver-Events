@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+group = 'com.github.xzxADIxzx.Interserver-Events'
+version = '1.0.0'
+
+sourceCompatibility = JavaVersion.VERSION_16
+targetCompatibility = JavaVersion.VERSION_16
+
+sourceSets.main.java.srcDirs = ['src']
+
+repositories {
+	mavenCentral()
+	maven { url 'https://www.jitpack.io' }
+}
+
+ext {
+	mindustryVersion = 'v141'
+}
+
+dependencies {
+    compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
+    compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+}
+
+java {
+	withSourcesJar()
+	withJavadocJar()
+}
+
+publishing {
+	publications {
+		maven(MavenPublication) {
+			groupId project.group
+			artifactId project.name
+			version project.version
+			from components.java
+		}
+	}
+}
