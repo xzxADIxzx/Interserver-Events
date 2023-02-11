@@ -21,6 +21,9 @@ public abstract class EventListener {
         return subscriptions.remove(subscription);
     }
 
+    /** Called when an event listener receives an object. */
+    public abstract void received(Object event);
+
     /** Subscribe to an event listener. It will fire every time the listener hears an event. */
     public static interface Subscription {
         public void get(Object object);

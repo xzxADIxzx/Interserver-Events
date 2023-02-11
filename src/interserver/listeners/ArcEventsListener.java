@@ -7,4 +7,8 @@ public class ArcEventsListener extends EventListener {
     public void listen(Class<?> type) {
         Events.on(type, event -> subscriptions.each(sub -> sub.get(event)));
     }
+
+    public void received(Object object) {
+        Events.fire(object);
+    }
 }
