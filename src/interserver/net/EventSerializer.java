@@ -1,4 +1,4 @@
-package interserver;
+package interserver.net;
 
 import arc.net.NetSerializer;
 import arc.util.Log;
